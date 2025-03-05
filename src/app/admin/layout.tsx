@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { Layout, ConfigProvider } from "antd";
 import CustomHeader from "@/app/components/Header";
 import Sidebar from "@/app/components/SideBar";
@@ -18,13 +18,11 @@ const RootPage = ({ children }: LayoutProps) => {
         role: "Quản trị viên",
     };
 
-    const [loading, setLoading] = useState(false); // Thêm state loading
-
     return (
         <div className="flex">
             <ConfigProvider componentSize="large">
                 <Layout className="!h-screen">
-                    <Sidebar setLoading={setLoading} /> {/* Truyền prop setLoading */}
+                    <Sidebar /> {/* Xóa setLoading prop */}
                     <Layout>
                         <CustomHeader user={user} />
                         <Content
